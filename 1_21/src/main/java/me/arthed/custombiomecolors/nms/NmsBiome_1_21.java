@@ -3,19 +3,17 @@ package me.arthed.custombiomecolors.nms;
 import me.arthed.custombiomecolors.utils.ReflectionUtils;
 import me.arthed.custombiomecolors.utils.objects.BiomeColors;
 import me.arthed.custombiomecolors.utils.objects.BiomeKey;
-import net.minecraft.core.IRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.MinecraftKey;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.BiomeBase;
 import net.minecraft.world.level.biome.BiomeFog;
-import org.bukkit.Bukkit;
 
-public class NmsBiome_1_19 implements NmsBiome {
+public class NmsBiome_1_21 implements NmsBiome {
 
     private final BiomeBase biomeBase;
 
-    public NmsBiome_1_19(BiomeBase biomeBase) {
+    public NmsBiome_1_21(BiomeBase biomeBase) {
         this.biomeBase = biomeBase;
     }
 
@@ -43,15 +41,16 @@ public class NmsBiome_1_19 implements NmsBiome {
 
     @Override
     public NmsBiome cloneWithDifferentColors(NmsServer nmsServer, BiomeKey newBiomeKey, BiomeColors biomeColors) {
-        ResourceKey<BiomeBase> customBiomeKey = ResourceKey.a((ResourceKey<? extends IRegistry<BiomeBase>>) Registries.an, new MinecraftKey(newBiomeKey.key, newBiomeKey.value));
+        ResourceKey<BiomeBase> customBiomeKey = ResourceKey.a(Registries.ap, new MinecraftKey(newBiomeKey.key, newBiomeKey.value));
         BiomeBase.a customBiomeBuilder = new BiomeBase.a();
+
 
         customBiomeBuilder.a(biomeBase.d());
         customBiomeBuilder.a(biomeBase.b());
         customBiomeBuilder.a(0.7F);
         customBiomeBuilder.b(0.8F);
         customBiomeBuilder.a(BiomeBase.TemperatureModifier.a);
-        
+
         BiomeFog.a customBiomeColors = new BiomeFog.a();
         customBiomeColors.a(BiomeFog.GrassColor.a);
 
@@ -71,7 +70,7 @@ public class NmsBiome_1_19 implements NmsBiome {
 
         nmsServer.registerBiome(customBiome, customBiomeKey);
 
-        return new NmsBiome_1_19(customBiome);
+        return new NmsBiome_1_21(customBiome);
     }
 
     public boolean equals(Object object) {
