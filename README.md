@@ -14,7 +14,7 @@ Requires [WorldEdit](https://dev.bukkit.org/projects/worldedit).
   <img src="https://i.imgur.com/zkHUiNb.png">
 </details>
 
-❗ You must reconnect in order to see the changes
+❗ You must reconnect in order to see the changess
 
 ❗ Due to the way biomes work in minecraft, selections, especially small ones, might not be precise.
 
